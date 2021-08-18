@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="{{$user->profile->profileImage() }}" , class="rounded-circle w-100">
+            <img src="{{$user->profile->profileImage() }}" class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
@@ -13,7 +13,7 @@
                     <h4>{{ $user->username}}</h4>
                     {{-- <button class="btn btn-primary ml-4">Follow</button> --}}
 
-                    {{-- <follow-button></follow-button> --}}
+                    <follow-button user-id="{{ $user->id}}" follows="{{ $follows}}"/>
 
                     {{-- <example-component></example-component> --}}
 
@@ -31,11 +31,9 @@
             @endcan
 
             <div class="d-flex">
-                <div class="pr-5"><strong>{{$user->posts->count()}}</strong> posts</div>
-                <div class="pr-5"><strong>23k</strong> followers</div>
-                <div class="pr-5"><strong>212</strong> following</div>
-                <follow-button></follow-button>
-
+                <div class="pr-5"><strong>{{$postsCount}}</strong> posts</div>
+                <div class="pr-5"><strong>{{ $followersCount}}</strong> followers</div>
+                <div class="pr-5"><strong>{{ $followingsCount}}</strong> following</div>
 
             </div>
             <div class="pt-4"><strong>{{$user->profile->title}}</strong></div>
